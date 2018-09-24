@@ -19,7 +19,7 @@ public class EmployeeService {
 		return employeeRepository.save(employee);
 	}
 	
-	public List<Employee> getEmployeesByType(String dept) {
+	public List<Employee> getEmployeesFilteredByDept(String dept) {
 		
 		return ((List<Employee>) employeeRepository.findAll())
 				.stream()
