@@ -14,8 +14,8 @@ export class AppComponent implements OnInit {
   constructor(private service: AppService) {}
 
   ngOnInit() {
-    this.service.getEmployees().subscribe(e => {
-      this.employees = e;
+    this.service.getEmployees().subscribe((e) => {
+      this.employees = <Employee[]> e.data;
     });
   }
 }

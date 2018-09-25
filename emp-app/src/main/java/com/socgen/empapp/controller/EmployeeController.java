@@ -1,4 +1,4 @@
-package com.socgen.empapp;
+package com.socgen.empapp.controller;
 
 import java.util.List;
 
@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.socgen.empapp.business.EmployeeService;
+import com.socgen.empapp.model.Employee;
 
 @RestController
 public class EmployeeController {

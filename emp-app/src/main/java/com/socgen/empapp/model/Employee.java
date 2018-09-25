@@ -1,4 +1,4 @@
-package com.socgen.empapp;
+package com.socgen.empapp.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,6 +22,10 @@ public class Employee {
 	@Column
 	@JsonProperty("dept")
 	String dept;
+	
+	@Column
+	@JsonProperty("age")
+	Integer age;
 	
 	
 	@Override

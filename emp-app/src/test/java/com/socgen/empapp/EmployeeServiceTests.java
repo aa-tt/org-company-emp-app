@@ -10,6 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.socgen.empapp.business.EmployeeService;
+import com.socgen.empapp.model.Employee;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class EmployeeServiceTests {
@@ -26,9 +29,9 @@ public class EmployeeServiceTests {
 	public void testAddEmployee() {
 		
 		Employee expected = employeeService.addEmployee(actual);
-		assertEquals(expected.id, actual.id);
-		assertEquals(expected.name, actual.name);
-		assertEquals(expected.dept, actual.dept);
+		assertEquals(expected.getId(), actual.getId());
+		assertEquals(expected.getName(), actual.getName());
+		assertEquals(expected.getDept(), actual.getDept());
 	}
 	
 	@After
