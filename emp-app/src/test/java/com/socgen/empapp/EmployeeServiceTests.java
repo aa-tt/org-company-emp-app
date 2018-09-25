@@ -22,7 +22,7 @@ public class EmployeeServiceTests {
 	
 	@Before
 	public void setUp() {		
-		actual = new Employee(5, "Eene", "HR");
+		actual = new Employee(7, "Eene", "HR");
 	}
 	
 	@Test
@@ -36,7 +36,7 @@ public class EmployeeServiceTests {
 	
 	@After
 	public void cleanUp() {
-		employeeService.deleteById(5);
+		employeeService.deleteById(7);
 	}
 
 }

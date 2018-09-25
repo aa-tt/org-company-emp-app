@@ -1,0 +1,41 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+/emp-ui/emp-app/dist
+/emp-ui/emp-app/tmp
+/emp-ui/emp-app/out-tsc
+/emp-ui/emp-app/yarn.lock
+
+# dependencies
+/emp-ui/emp-app/node_modules
+
+# IDEs and editors
+/emp-app/.idea
+/emp-app/.project
+/emp-app/.classpath
+/emp-app/target/*
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+
+# System Files
+.DS_Store
+Thumbs.db

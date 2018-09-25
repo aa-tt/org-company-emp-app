@@ -10,6 +10,6 @@ export class AppService {
   constructor(private http: HttpClient) { }
 
   getEmployees() {
-    return this.http.get<EmpAppApiResponse>(`http://localhost:8081/employees`);
+    return this.http.get<EmpAppApiResponse>(`http://localhost:8081/empapp-api/v1/employees`);
   }
 }

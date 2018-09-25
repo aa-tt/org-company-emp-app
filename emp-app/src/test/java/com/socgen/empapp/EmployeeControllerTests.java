@@ -41,7 +41,7 @@ public class EmployeeControllerTests {
 		this.objectMapper = new ObjectMapper();
 
 		Employee emp = new Employee();
-		emp.setId(5);
+		emp.setId(1);
 		emp.setName("Eene");
 		emp.setDept("HR");
 		
@@ -58,7 +58,7 @@ public class EmployeeControllerTests {
 
 	@Test
 	public void test_getAllEmployees_expectSuccess() throws Exception {
-		this.mvc.perform(get("/employees")
+		this.mvc.perform(get("/v1/employees")
 				.contentType(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk())
 				.andExpect(jsonPath("$.length()", is(1)));
@@ -66,10 +66,10 @@ public class EmployeeControllerTests {
 	
 	@Test
 	public void test_getEmployee_expectSuccess() throws Exception {
-		this.mvc.perform(get("/employees/5")
+		this.mvc.perform(get("/v1/employees/5")
 				.contentType(MediaType.APPLICATION_JSON))
 		.andExpect(status().isOk())
-		.andExpect(jsonPath("$.id", is(5)))
+		.andExpect(jsonPath("$.id", is(1)))
 		.andExpect(jsonPath("$.name", is("Eene")))
 		.andExpect(jsonPath("$.dept", is("HR")));
 	}

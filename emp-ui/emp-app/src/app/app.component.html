@@ -9,12 +9,14 @@
     <tr>
       <th scope="col">Name</th>
       <th scope="col">Dept</th>
+      <th scope="col">Age</th>
     </tr>
   </thead>
   <ng-container *ngFor="let emp of employees">
     <tr scope="row">
       <td>{{emp.name}}</td>
       <td>{{emp.dept}}</td>
+      <td>{{emp.age}}</td>
     </tr>
   </ng-container>
 </table>

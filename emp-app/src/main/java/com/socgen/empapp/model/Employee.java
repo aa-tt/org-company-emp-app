@@ -6,8 +6,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import org.hibernate.validator.constraints.NotBlank;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.socgen.empapp.common.EmpAppCustomDeserializers;
+
+import lombok.Data;
+
+@Data
 @Entity
 public class Employee {
 	
@@ -17,10 +24,12 @@ public class Employee {
 	
 	@Column
 	@JsonProperty("name")
+	@NotBlank
 	String name;
 	
 	@Column
 	@JsonProperty("dept")
+	@JsonDeserialize(using=EmpAppCustomDeserializers.ToUpperCaseDeserializer.class)
 	String dept;
 	
 	@Column
@@ -28,38 +37,9 @@ public class Employee {
 	Integer age;
 	
 	
-	@Override
-	public String toString() {
-		return "Employee [id=" + id + ", name=" + name + ", type=" + dept + "]";
-	}
-	
 	public Employee() {}
 	public Employee(Integer id, String name, String dept) {
 		this.id = id; this.name = name; this.dept = dept;
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getDept() {
-		return dept;
-	}
-
-	public void setDept(String dept) {
-		this.dept = dept;
 	}
 
 }
