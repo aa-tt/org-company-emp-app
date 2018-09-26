@@ -8,7 +8,7 @@ import { Employee } from './employee';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'soc gen';
+  title = 'earth';
   employees: Employee[] = [];
 
   constructor(private service: AppService) {}
