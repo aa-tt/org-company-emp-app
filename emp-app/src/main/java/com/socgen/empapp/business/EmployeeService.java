@@ -32,6 +32,16 @@ public class EmployeeService {
 				})
 				.collect(Collectors.toList());
 	}
+	
+	public List<Employee> getEmployeesFilteredByDeptAndAge(String dept, Integer age) {
+		
+		return ((List<Employee>) employeeRepository.findAll())
+				.stream()
+				.filter(employee -> {
+					return employee.getDept().equals(dept) && employee.getAge() >= age;
+				})
+				.collect(Collectors.toList());
+	}
 
 	@Transactional
 	public Employee deleteById(Integer id) {

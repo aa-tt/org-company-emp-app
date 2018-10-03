@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.socgen.empapp.business.EmployeeService;
+import com.socgen.empapp.common.AgeLimitHRValid;
 import com.socgen.empapp.model.Employee;
 
 @RestController
@@ -33,11 +34,16 @@ public class EmployeeController {
 	}
 
 	@GetMapping(value = "/employees", produces = { "application/json" })
-	public ResponseEntity<?> getAllEmployees(@RequestParam(name = "dept", required = false) String dept) {
+	@AgeLimitHRValid(message="HR minimum age should be 30")
+	public ResponseEntity<?> getAllEmployees(@RequestParam(name = "dept", required = false) String dept,
+			@RequestParam(name = "age", required = false) Integer age) {
 		List<Employee> employees;
-		if (null != dept)
-			employees = employeeService.getEmployeesFilteredByDept(dept);
-		else
+		if (null != dept) {
+			if (null != age)
+				employees = employeeService.getEmployeesFilteredByDeptAndAge(dept, age);
+			else
+				employees = employeeService.getEmployeesFilteredByDept(dept);
+		} else
 			employees = employeeService.getAllEmployees();
 		return new ResponseEntity<List<Employee>>(employees, HttpStatus.OK);
 	}

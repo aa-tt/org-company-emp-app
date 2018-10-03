@@ -22,7 +22,7 @@ public class EmployeeServiceTests {
 	
 	@Before
 	public void setUp() {		
-		actual = new Employee(7, "Eene", "HR");
+		actual = new Employee(7, "Eene", "HR", 40);
 	}
 	
 	@Test
@@ -32,6 +32,7 @@ public class EmployeeServiceTests {
 		assertEquals(expected.getId(), actual.getId());
 		assertEquals(expected.getName(), actual.getName());
 		assertEquals(expected.getDept(), actual.getDept());
+		assertEquals(expected.getAge(), actual.getAge());
 	}
 	
 	@After

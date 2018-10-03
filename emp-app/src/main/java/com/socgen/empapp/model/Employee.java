@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
 
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -24,7 +25,7 @@ public class Employee {
 	
 	@Column
 	@JsonProperty("name")
-	@NotBlank
+	@NotBlank(message="name cannot be null or blank")
 	String name;
 	
 	@Column
@@ -34,12 +35,15 @@ public class Employee {
 	
 	@Column
 	@JsonProperty("age")
+	//@AgeLimitValid
+	@Min(value=20, message="minimum age of employee should be 20")
 	Integer age;
 	
 	
 	public Employee() {}
-	public Employee(Integer id, String name, String dept) {
-		this.id = id; this.name = name; this.dept = dept;
+	
+	public Employee(Integer id, String name, String dept, Integer age) {
+		this.id = id; this.name = name; this.dept = dept; this.age = age;
 	}
 
 }
