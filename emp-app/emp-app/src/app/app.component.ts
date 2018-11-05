@@ -9,13 +9,8 @@ import { Employee } from './employee';
 })
 export class AppComponent implements OnInit {
   title = 'earth';
-  employees: Employee[] = [];
 
-  constructor(private service: AppService) {}
+  constructor() {}
 
-  ngOnInit() {
-    this.service.getEmployees().subscribe((e) => {
-      this.employees = <Employee[]> e.data;
-    });
-  }
+  ngOnInit() { }
 }

@@ -2,6 +2,8 @@ package com.socgen.empapp;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.List;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.google.common.collect.Lists;
 import com.socgen.empapp.business.EmployeeService;
 import com.socgen.empapp.model.Employee;
 
@@ -28,11 +31,11 @@ public class EmployeeServiceTests {
 	@Test
 	public void testAddEmployee() {
 		
-		Employee expected = employeeService.addEmployee(actual);
-		assertEquals(expected.getId(), actual.getId());
-		assertEquals(expected.getName(), actual.getName());
-		assertEquals(expected.getDept(), actual.getDept());
-		assertEquals(expected.getAge(), actual.getAge());
+		List<Employee> expected = employeeService.addEmployee(Lists.newArrayList(actual));
+		assertEquals(expected.get(0).getId(), actual.getId());
+		assertEquals(expected.get(0).getName(), actual.getName());
+		assertEquals(expected.get(0).getDept(), actual.getDept());
+		assertEquals(expected.get(0).getAge(), actual.getAge());
 	}
 	
 	@After

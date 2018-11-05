@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -60,10 +61,11 @@ public class EmployeeController {
 		return new ResponseEntity<Employee>(employee, HttpStatus.OK);
 	}
 
-	@PostMapping(value = "/employee", consumes = { "application/json" }, produces = { "application/json" })
-	public ResponseEntity<Employee> addEmployee(@RequestBody @Valid Employee employee) {
-		Employee employeeSaved = employeeService.addEmployee(employee);
-		return new ResponseEntity<Employee>(employeeSaved, HttpStatus.OK);
+	@CrossOrigin(origins = "http://localhost:4200")
+	@PostMapping(value = "/employees", consumes = { "application/json" }, produces = { "application/json" })
+	public ResponseEntity<List<Employee>> addEmployee(@RequestBody @Valid List<Employee> employees) {
+		List<Employee> employeeSaved = employeeService.addEmployee(employees);
+		return new ResponseEntity<List<Employee>>(employeeSaved, HttpStatus.OK);
 	}
 
 }

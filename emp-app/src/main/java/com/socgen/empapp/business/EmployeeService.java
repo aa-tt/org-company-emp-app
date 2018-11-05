@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.google.common.collect.Lists;
 import com.socgen.empapp.common.EmpAppCustomException;
 import com.socgen.empapp.model.Employee;
 import com.socgen.empapp.repository.EmployeeRepository;
@@ -18,9 +19,9 @@ public class EmployeeService {
 	public EmployeeRepository employeeRepository;
 
 	@Transactional
-	public Employee addEmployee(Employee employee) {
+	public List<Employee> addEmployee(List<Employee> employees) {
 
-		return employeeRepository.save(employee);
+		return Lists.newArrayList(employeeRepository.save(employees));
 	}
 
 	public List<Employee> getEmployeesFilteredByDept(String dept) {

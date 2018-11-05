@@ -1,0 +1,16 @@
+<!-- Form value: {{addEmpFg.value | json}}Í-->
+<form class="form-group" novalidate (ngSubmit)="onSubmit(addEmpFg)" [formGroup]="addEmpFg">
+  <label>
+    <span class="form-label">Name:</span>
+    <input class="form-control" type="text" formControlName="name" placeholder="employee name">
+  </label>
+  <label>
+    <span class="form-label">Department:</span>
+    <input class="form-control" type="text" formControlName="dept" placeholder="Select">
+  </label>
+  <label>
+    <span class="form-label">Age:</span>
+    <input class="form-control" type="text" formControlName="age" placeholder="employee age">
+  </label>
+  <button type="submit" [disabled]="addEmpFg.invalid" class="btn btn-info btn-lg">Onboard Him</button>
+</form>

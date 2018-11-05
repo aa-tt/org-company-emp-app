@@ -2,7 +2,10 @@ package com.socgen.empapp.common;
 
 import java.time.LocalDateTime;
 
+import org.springframework.http.HttpStatus;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.Data;
 
@@ -23,13 +26,16 @@ class ResponseMeta {
 }
 
 @Data
+@JsonIgnoreProperties(value = { "status", "ex" })
 class ApiErrorResponse {
+	private transient HttpStatus status;
 	private String displayMessage;
-	private String verboseMessage;
+	private transient Throwable ex;
 	public ApiErrorResponse() {	}
-	public ApiErrorResponse(String displayMessage, String verboseMessage) {
-		this.verboseMessage = verboseMessage;
+	public ApiErrorResponse(HttpStatus status, String displayMessage, Throwable ex) {
+		this.status = status;
 		this.displayMessage = displayMessage;
+		this.ex = ex;
 	}
 
 	@Override

@@ -1,0 +1,9 @@
+<div *ngIf="onError()" class="w-auto p-3" style="background-color: #e40;">
+  <span>{{info.status}} {{info.message}}</span>
+  <input class="btn btn-link" type="button" (click)="close()" value="X">
+</div>
+
+<div *ngIf="onSuccess()" class="w-auto p-3" style="background-color: #0e0;">
+  <span>{{info.status}} {{info.message}}</span>
+  <input class="btn btn-link" type="button" (click)="close()" value="X">
+</div>
