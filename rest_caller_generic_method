@@ -1,0 +1,30 @@
+/**
+ * S - source type
+ * R - return type
+ */
+@SuppressWarnings("unchecked")
+@Override
+public <S, R> R apiCaller(String url, HttpMethod method, S requestEntity, Class<R> responseType,final Map requestHeaderMap) {
+  LOG.info("apiCaller::url=>"+url);
+  try {
+    RestTemplate restTemplate = getRestTemplate();
+    HttpComponentsClientHttpRequestFactory requestFactory = new HttpComponentsClientHttpRequestFactory();
+    // requestFactory.setConnectTimeout(300);
+    // requestFactory.setReadTimeout(300);
+    restTemplate.setInterceptors(null);
+    restTemplate.setRequestFactory(requestFactory);
+    HttpHeaders headers = setDefaultHeaders();
+    headers.set(CORRELATION_ID, (String)requestHeaderMap.get(CORRELATION_ID));
+    HttpEntity<?> requestEntityForApiCall = new HttpEntity<>(requestEntity, headers);
+    ResponseEntity<?> response = restTemplate.exchange(url, method, requestEntityForApiCall, responseType);
+    if (response.getStatusCodeValue() == 201 || response.getStatusCodeValue() == 200) {
+      LOG.info(Thread.currentThread().getStackTrace()[2].getClassName() + " >> " + Thread.currentThread().getStackTrace()[2].getMethodName() + " >> "
+          + method + " success");
+      return (R) response.getBody();
+    } 
+    return null;		
+  } catch(Exception e) {
+    LOG.error("Exception in api call for "+url,e);
+    return null;
+  }
+}
