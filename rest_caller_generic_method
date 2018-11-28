@@ -27,4 +27,11 @@ public <S, R> R apiCaller(String url, HttpMethod method, S requestEntity, Class<
     LOG.error("Exception in api call for "+url,e);
     return null;
   }
+  
+  public RestTemplate getRestTemplate() {
+		RestTemplate restTemplate = new RestTemplate(
+				new BufferingClientHttpRequestFactory(new SimpleClientHttpRequestFactory()));
+		restTemplate.setInterceptors(Collections.singletonList(new ClientLoggingInterceptor()));
+		return restTemplate;
+	}
 }
