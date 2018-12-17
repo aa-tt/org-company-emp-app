@@ -1,25 +1,6 @@
-<div style="text-align:center">
-  <h2>
-    Welcome to {{ title }}!
-  </h2>
-</div>
-
-<app-loademp></app-loademp>
-
-<div style="text-align:center">
-  <h2>
-    Add an Employee to earth!
-  </h2>
-</div>
-
-<app-addemp></app-addemp>
-
-<!--div style="text-align:center">
-  <h2>
-    Add a Team to earth!
-  </h2>
-</div-->
-
-<!--app-addteam></app-addteam-->
-
+<ul>
+  <li><a href="/load" target="_self">load</a></li>
+  <li><a href="/add" target="_self">add</a></li>
+</ul>
+<router-outlet></router-outlet>
 <app-errordialog></app-errordialog>

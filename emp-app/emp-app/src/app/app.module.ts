@@ -10,6 +10,7 @@ import { ErrordialogComponent } from './errordialog/errordialog.component';
 import { AppErrorHandler } from './app-error-handler.service';
 import { InfoMessagingService } from './info-messaging.service';
 import { LoadempComponent } from './loademp/loademp.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { LoadempComponent } from './loademp/loademp.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   providers: [
     AppService,
