@@ -13,25 +13,22 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.socgen.empapp.common.EmpAppCustomDeserializers;
 
-import lombok.Data;
-
-@Data
 @Entity
 public class Employee {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	Integer id;
+	public Integer id;
 	
 	@Column
 	@JsonProperty("name")
 	@NotBlank(message="name cannot be null or blank")
-	String name;
+	public String name;
 	
 	@Column
 	@JsonProperty("dept")
 	@JsonDeserialize(using=EmpAppCustomDeserializers.ToUpperCaseDeserializer.class)
-	String dept;
+	public String dept;
 	
 	@Column
 	@JsonProperty("age")
@@ -42,7 +39,7 @@ public class Employee {
 	
 	public Employee() {}
 	
-	public Employee(Integer id, String name, String dept, Integer age) {
+	public Employee(Integer id, String name, String dept, int age) {
 		this.id = id; this.name = name; this.dept = dept; this.age = age;
 	}
 

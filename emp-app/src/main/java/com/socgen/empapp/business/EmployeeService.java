@@ -27,14 +27,14 @@ public class EmployeeService {
 	public List<Employee> getEmployeesFilteredByDept(String dept) {
 
 		return ((List<Employee>) employeeRepository.findAll()).stream().filter(employee -> {
-			return employee.getDept().equals(dept);
+			return employee.dept.equals(dept);
 		}).collect(Collectors.toList());
 	}
 
 	public List<Employee> getEmployeesFilteredByDeptAndAge(String dept, Integer age) {
 
 		return ((List<Employee>) employeeRepository.findAll()).stream().filter(employee -> {
-			return employee.getDept().equals(dept) && employee.getAge() >= age;
+			return employee.dept.equals(dept) && employee.age >= age;
 		}).collect(Collectors.toList());
 	}
 

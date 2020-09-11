@@ -7,30 +7,26 @@ import org.springframework.http.HttpStatus;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import lombok.Data;
 
-@Data
-public class EmpAppCustomResponseEntity {	
-	private ResponseMeta meta;
-	private Object data;
-	private ApiErrorResponse error;
+public class EmpAppCustomResponseEntity {
+	public ResponseMeta meta;
+	public Object data;
+	public ApiErrorResponse error;
 }
 
-@Data
 class ResponseMeta {
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss.n")
-	private LocalDateTime timestamp;
-	private String statusMessage;
-	private long responseTime;
-	private int total;
+	public LocalDateTime timestamp;
+	public String statusMessage;
+	public long responseTime;
+	public int total;
 }
 
-@Data
 @JsonIgnoreProperties(value = { "status", "ex" })
 class ApiErrorResponse {
-	private transient HttpStatus status;
-	private String displayMessage;
-	private transient Throwable ex;
+	public transient HttpStatus status;
+	public String displayMessage;
+	public transient Throwable ex;
 	public ApiErrorResponse() {	}
 	public ApiErrorResponse(HttpStatus status, String displayMessage, Throwable ex) {
 		this.status = status;

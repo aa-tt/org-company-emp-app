@@ -86,13 +86,13 @@ public class EmpAppExceptionHandler extends ResponseEntityExceptionHandler {
 	private ResponseEntity<Object> buildAppCustomResponseEntity(ApiErrorResponse apiError) {
 		EmpAppCustomResponseEntity appResponseEntity = new EmpAppCustomResponseEntity();
 		ResponseMeta responseMeta = new ResponseMeta();
-		responseMeta.setTimestamp(loggerAspect.getStartTime());
+		responseMeta.timestamp = loggerAspect.startTime;
 		//responseMeta.setResponseTime(ChronoUnit.MILLIS.between(loggerAspect.getStartTime(), loggerAspect.getEndTime()));
-		responseMeta.setResponseTime(0);
+		responseMeta.responseTime = 0;
 
-		appResponseEntity.setError(apiError); // 3. set error
-		appResponseEntity.setMeta(responseMeta);
-		responseMeta.setStatusMessage(apiError.getDisplayMessage());
-		return ResponseEntity.status(apiError.getStatus()).body(appResponseEntity);
+		appResponseEntity.error = apiError; // 3. set error
+		appResponseEntity.meta = responseMeta;
+		responseMeta.statusMessage = apiError.displayMessage;
+		return ResponseEntity.status(apiError.status).body(appResponseEntity);
 	}
 }

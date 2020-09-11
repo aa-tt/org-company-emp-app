@@ -32,10 +32,10 @@ public class EmployeeServiceTests {
 	public void testAddEmployee() {
 		
 		List<Employee> expected = employeeService.addEmployee(Lists.newArrayList(actual));
-		assertEquals(expected.get(0).getId(), actual.getId());
-		assertEquals(expected.get(0).getName(), actual.getName());
-		assertEquals(expected.get(0).getDept(), actual.getDept());
-		assertEquals(expected.get(0).getAge(), actual.getAge());
+		assertEquals(expected.get(0).id, actual.id);
+		assertEquals(expected.get(0).name, actual.name);
+		assertEquals(expected.get(0).dept, actual.dept);
+		assertEquals(expected.get(0).age, actual.age);
 	}
 	
 	@After

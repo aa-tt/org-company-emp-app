@@ -41,9 +41,9 @@ public class EmployeeControllerTests {
 		this.objectMapper = new ObjectMapper();
 
 		Employee emp = new Employee();
-		emp.setId(1);
-		emp.setName("Eene");
-		emp.setDept("HR");
+		emp.id = 1;
+		emp.name = "Eene";
+		emp.dept = "HR";
 		
 		List<Employee> empList = new ArrayList<>(); 
 		empList.add(emp);
