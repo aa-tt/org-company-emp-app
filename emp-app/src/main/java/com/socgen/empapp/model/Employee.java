@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Min;
 
+import com.socgen.empapp.common.AgeLimitValid;
 import org.hibernate.validator.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -32,9 +33,9 @@ public class Employee {
 	
 	@Column
 	@JsonProperty("age")
-	//@AgeLimitValid
-	@Min(value=20, message="minimum age of employee should be 20")
-	Integer age;
+	@AgeLimitValid(message = "abcd")
+	//@Min(value=20, message="minimum age of employee should be 20")
+	public int age;
 	
 	
 	public Employee() {}

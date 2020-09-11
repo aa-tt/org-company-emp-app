@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Value;
 public class EmpAppCustomValidators {
 
 	@SupportedValidationTarget(ValidationTarget.ANNOTATED_ELEMENT)
-	public static class AgeLimitValidator implements ConstraintValidator<AgeLimitValid, String> {
+	public static class AgeLimitValidator implements ConstraintValidator<AgeLimitValid, Integer> {
 		
 		@Value("${employee.ageLimit}")
 		private int defaultMinLimit;
@@ -24,8 +24,8 @@ public class EmpAppCustomValidators {
 		}
 		
 		@Override
-		public boolean isValid(String value, ConstraintValidatorContext context) {
-			if (Integer.parseInt(value) < minAgeLimit)
+		public boolean isValid(Integer value, ConstraintValidatorContext context) {
+			if (value.intValue() < minAgeLimit)
 				return false;
 			return true;
 		}		
