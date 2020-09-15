@@ -1,4 +1,4 @@
-package com.socgen.empapp;
+package org.company.empapp;
 
 import static org.junit.Assert.assertEquals;
 
@@ -13,8 +13,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.google.common.collect.Lists;
-import com.socgen.empapp.business.EmployeeService;
-import com.socgen.empapp.model.Employee;
+import org.company.empapp.business.EmployeeService;
+import org.company.empapp.model.Employee;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

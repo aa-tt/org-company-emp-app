@@ -1,4 +1,4 @@
-package com.socgen.empapp.common;
+package org.company.empapp.common;
 
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
 

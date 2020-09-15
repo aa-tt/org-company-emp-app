@@ -1,4 +1,4 @@
-package com.socgen.empapp.common;
+package org.company.empapp.common;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
@@ -25,7 +25,7 @@ import org.springframework.stereotype.Component;
  * @author anunay
  */
 // pointcuts for @Before, @After and @AfterThrowing advices ->
-// "execution(* com.socgen.empapp.*.*.*(..))"
+// "execution(* org.company.empapp.*.*.*(..))"
 // for application level logging and exception handling.
 //
 // pointcut for @Around advice is only for package "*.controller", as it updates
@@ -39,11 +39,11 @@ public class EmpAppExceptionLoggerAndResponseEnhancerAspect {
 	public LocalDateTime endTime;
 	public Log log = new SLF4JLogFactory().getInstance("EmpAppExceptionLoggerAndResponseEnhancerAspect");
 
-	@Pointcut("execution(* com.socgen.empapp.controller.*.*(..))")
+	@Pointcut("execution(* org.company.empapp.controller.*.*(..))")
 	public void anyCntlrOprn() {
 	}
 
-	@Pointcut("execution(* com.socgen.empapp.business.*.*(..))")
+	@Pointcut("execution(* org.company.empapp.business.*.*(..))")
 	public void anyBussOprn() {
 	}
 

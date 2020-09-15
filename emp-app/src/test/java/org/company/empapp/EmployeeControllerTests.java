@@ -1,4 +1,4 @@
-package com.socgen.empapp;
+package org.company.empapp;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.mockito.Matchers.any;
@@ -22,9 +22,9 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.socgen.empapp.business.EmployeeService;
-import com.socgen.empapp.controller.EmployeeController;
-import com.socgen.empapp.model.Employee;
+import org.company.empapp.business.EmployeeService;
+import org.company.empapp.controller.EmployeeController;
+import org.company.empapp.model.Employee;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

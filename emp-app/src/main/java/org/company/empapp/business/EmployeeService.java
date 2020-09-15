@@ -1,4 +1,4 @@
-package com.socgen.empapp.business;
+package org.company.empapp.business;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -8,9 +8,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.google.common.collect.Lists;
-import com.socgen.empapp.common.EmpAppCustomException;
-import com.socgen.empapp.model.Employee;
-import com.socgen.empapp.repository.EmployeeRepository;
+import org.company.empapp.common.EmpAppCustomException;
+import org.company.empapp.model.Employee;
+import org.company.empapp.repository.EmployeeRepository;
 
 @Service
 public class EmployeeService {

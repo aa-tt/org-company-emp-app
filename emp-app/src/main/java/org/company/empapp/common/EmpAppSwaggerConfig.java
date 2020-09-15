@@ -1,4 +1,4 @@
-package com.socgen.empapp.common;
+package org.company.empapp.common;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,7 +19,7 @@ public class EmpAppSwaggerConfig extends WebMvcConfigurationSupport {
 	@Bean
 	public Docket api() {
 		return new Docket(DocumentationType.SWAGGER_2).select()
-				.apis(RequestHandlerSelectors.basePackage("com.socgen.empapp.controller")).build().apiInfo(apiInfo());
+				.apis(RequestHandlerSelectors.basePackage("org.company.empapp.controller")).build().apiInfo(apiInfo());
 	}
 
 	private ApiInfo apiInfo() {

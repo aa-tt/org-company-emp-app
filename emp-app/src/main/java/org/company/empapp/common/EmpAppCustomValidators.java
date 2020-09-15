@@ -1,4 +1,4 @@
-package com.socgen.empapp.common;
+package org.company.empapp.common;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

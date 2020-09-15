@@ -1,4 +1,4 @@
-package com.socgen.empapp.common;
+package org.company.empapp.common;
 
 import static java.lang.annotation.ElementType.CONSTRUCTOR;
 import static java.lang.annotation.ElementType.METHOD;
@@ -17,7 +17,7 @@ import javax.validation.Payload;
 @Constraint(validatedBy = { EmpAppCustomValidators.AgeLimitHRValidator.class })
 public @interface AgeLimitHRValid {
 
-	String message() default "{com.socgen.empapp.common.AgeLimitHRValid.message}";
+	String message() default "{org.company.empapp.common.AgeLimitHRValid.message}";
 
 	Class<?>[] groups() default {};
 

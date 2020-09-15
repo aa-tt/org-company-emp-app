@@ -1,4 +1,4 @@
-package com.socgen.empapp.controller;
+package org.company.empapp.controller;
 
 import java.util.List;
 
@@ -18,9 +18,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.socgen.empapp.business.EmployeeService;
-import com.socgen.empapp.common.AgeLimitHRValid;
-import com.socgen.empapp.model.Employee;
+import org.company.empapp.business.EmployeeService;
+import org.company.empapp.common.AgeLimitHRValid;
+import org.company.empapp.model.Employee;
 
 @RestController
 @RequestMapping("/v1")

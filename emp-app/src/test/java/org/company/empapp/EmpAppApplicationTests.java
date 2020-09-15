@@ -1,4 +1,4 @@
-package com.socgen.empapp;
+package org.company.empapp;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,4 +1,4 @@
-package com.socgen.empapp.model;
+package org.company.empapp.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,12 +7,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Min;
 
-import com.socgen.empapp.common.AgeLimitValid;
+import org.company.empapp.common.AgeLimitValid;
 import org.hibernate.validator.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.socgen.empapp.common.EmpAppCustomDeserializers;
+import org.company.empapp.common.EmpAppCustomDeserializers;
 
 @Entity
 public class Employee {
